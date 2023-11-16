@@ -1,0 +1,87 @@
+body {
+  background: url('/Users/learnacademy/Desktop/react-rock-paper-scissors/rock-paper-scissors/backgrounds/sl_122021_47390_07.jpg') no-repeat center center fixed;
+  background-size: cover;
+  }
+  .main-heading {
+    text-align:center;
+  }
+  .game-return-box {
+    margin-top: 8rem;
+    max-height: 5rem;
+  }
+  .game {
+    max-height: 15rem;
+  }
+  .buttons-box {
+    margin-left: 34rem;
+    width:90rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .options {
+    border-radius: 1rem;
+    background-color:white;
+    font-size: larger;
+    width: 9rem;
+    min-height: 4rem;
+  }
+  
+  .main-header {
+    color: white;
+    text-shadow: 2px 2px rgb(255, 111, 0)
+  }
+  .round {
+    margin-left: 2rem;
+    color:white;
+  }
+  .round-box {
+    width: 10rem;
+  }
+  
+  .mankind {
+  color: white;
+  text-shadow: 2px 2px 0 blue; 
+  }
+  .computer {
+    color: white;
+  }
+  .everything-box{
+    max-height: 10rem;
+  }
+  .result {
+    margin-top: 9rem;
+    margin-left: 40rem;
+    display: flex;
+    justify-content: space-between;
+    min-height: 10rem;
+    max-width: 80rem;
+    color: antiquewhite;
+    font-size: x-large;
+  }
+  .player-score {
+    color: rgb(243, 185, 76);
+  }
+  .computer-score {
+    color:rgb(78, 170, 245);
+  }
+  .human {
+    color: rgb(243, 185, 76)
+  }
+  .computer {
+    color: rgb(78, 170, 245);
+  }
+  .titles {
+    margin-left:35rem;
+    max-width: 92rem;
+    display:flex;
+    justify-content: space-between;
+  }
+  .result-2 {
+    font-size: larger;
+    padding-top:4rem;
+    max-width: 20rem;
+    margin-left: 24rem;
+    margin-bottom: 3rem;
+    color:white
+  }
