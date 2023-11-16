@@ -1,5 +1,5 @@
 body {
-  background: url('/Users/learnacademy/Desktop/react-rock-paper-scissors/rock-paper-scissors/backgrounds/sl_122021_47390_07.jpg') no-repeat center center fixed;
+  background: url('../backgrounds/sl_122021_47390_07.jpg') no-repeat center center fixed;
   background-size: cover;
   }
   .main-heading {

@@ -1,6 +1,6 @@
-import { computeHeadingLevel } from "@testing-library/react";
+
 import React, { useState } from "react";
-import '/Users/learnacademy/Desktop/react-rock-paper-scissors/rock-paper-scissors/src/App.css'
+import '../App.css'
 
 
 
