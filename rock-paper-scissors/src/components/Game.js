@@ -1,15 +1,16 @@
-
 import React, { useState } from "react";
 import '../App.css'
 
 
 
-const Game = ({ onRoundChange, onScoreChange }) => {
+const Game = ({ onRoundChange, onScoreChange, onTieChange }) => {
     // useState variables
+    const [tieCount, setTieCount] = useState (0)
     const [playerScore, setPlayerScore] = useState(0)
     const [computerScore, setComputerScore] = useState(0)
     const [round, setRound] = useState(1)
     const [resultMessage, setResultMessage] = useState('Click your choice')
+
 
     // getting random choice for computer
     const getComputerChoice = () => {
@@ -24,7 +25,7 @@ const Game = ({ onRoundChange, onScoreChange }) => {
         const error = 'Please enter: Rock, Paper, or Scissors.'
         const playerWins = `You win! ${player} beats ${computer}.`
         const computerWins = `You lose, ${computer} beats ${player}`
-        const tie = `It's a tie try again.`
+        const tieMessage = `It's a tie try again.`
 
         if (
             (player === 'rock' && computer === 'paper') ||
@@ -39,7 +40,7 @@ const Game = ({ onRoundChange, onScoreChange }) => {
         ) {
             winner = playerWins
         } else if ( player === computer) {
-            winner = tie
+            winner = tieMessage
         } else {
             winner = error
         }
@@ -48,24 +49,37 @@ const Game = ({ onRoundChange, onScoreChange }) => {
 
 
     const handleRound = (playerSelection) => {
-        if(round < 10){
-        const computerSelection = getComputerChoice()
-        const result = playRound(playerSelection, computerSelection)
+        if (round < 10) {
+            const computerSelection = getComputerChoice();
+            const result = playRound(playerSelection, computerSelection);
+    
+            if (result.includes('win!')) {
+                setPlayerScore((prevPlayerScore) => {
+                    const newPlayerScore = prevPlayerScore + 1;
+                    onScoreChange(newPlayerScore, computerScore);
+                    return newPlayerScore;
+                });
+            } else if (result.includes('lose')) {
+                setComputerScore((prevComputerScore) => {
+                    const newComputerScore = prevComputerScore + 1;
+                    onScoreChange(playerScore, newComputerScore);
+                    return newComputerScore;
+                });
+            } else {
+                setTieCount((prevTieCount) => {
+                    const newTieCount = prevTieCount + 1;
+                    onTieChange(newTieCount);
+                    return newTieCount;
+                });
+            }
+    
+            setRound((prevRound) => {
+                const newRound = prevRound + 1;
+                onRoundChange(newRound);
+                return newRound;
+            })
 
-        if (result.includes('win!')) {
-            setPlayerScore((prevScore) => prevScore + 1)
-        } else if (result.includes('lose')) {
-            setComputerScore((prevScore) => prevScore + 1)
-        }
 
-        onScoreChange(playerScore +1 ,computerScore +1 )
-
-        setRound((prevRound) => {
-            const newRound = prevRound + 1
-        // Passing round  and score values to App.js
-        onRoundChange(newRound)
-        return newRound
-        })
         // Passing result value to App.js
         setResultMessage(result)
 
@@ -91,7 +105,7 @@ const Game = ({ onRoundChange, onScoreChange }) => {
                 <button className='options' onClick={() => handleRound('rock')}>Rock</button>
                 <button className='options' onClick={() => handleRound('paper')}>Paper</button>
                 <button className='options' onClick={() => handleRound('scissors')}>Scissors</button>
-            </div>
+        </div>
         </div>
         )
 }

@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import './App.css'
 import Game from './components/Game'
 
-
-
 const App = () => {
-  const [playerScore,setPlayerScore] = useState(0)
-  const [computerScore,setComputerScore] = useState(0)
-  const [currentResultMessage,setCurrentResultMessage] = useState('')
+  const [playerScore, setPlayerScore] = useState(0)
+  const [computerScore, setComputerScore] = useState(0)
   const [currentRound, setCurrentRound] = useState(1)
+  const [tieCount, setTieCount] = useState(0)
+
+  const handleTieChange = (newTieCount) => {
+    setTieCount(newTieCount)
+  }
   const handleRoundChange = (newRound) => {
     setCurrentRound(newRound)
   }
+
   const handleScoreChange = (newPlayerScore, newComputerScore) => {
     setPlayerScore(newPlayerScore)
     setComputerScore(newComputerScore)
@@ -27,6 +30,7 @@ const App = () => {
         </div>
         <div className='round'>
           <h1>Round {currentRound}</h1>
+          <h1>Ties {tieCount}</h1>
           </div>
         <div className='game'>
           <div className='titles'>
@@ -39,11 +43,11 @@ const App = () => {
           </div>
           <Game 
           onRoundChange={handleRoundChange}
-          onScoreChange={handleScoreChange}/>
+          onScoreChange={handleScoreChange}
+          onTieChange={handleTieChange}/>
         </div>
     </div>
     
   )
 }
-
-export default App;
+export default App
