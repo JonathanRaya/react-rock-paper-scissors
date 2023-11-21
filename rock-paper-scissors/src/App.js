@@ -46,7 +46,9 @@ const App = () => {
           onScoreChange={handleScoreChange}
           onTieChange={handleTieChange}/>
         </div>
+        <div className='footer'></div>
     </div>
+
     
   )
 }

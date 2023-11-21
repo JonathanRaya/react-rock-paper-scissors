@@ -1,6 +1,7 @@
 body {
   background: url('../backgrounds/sl_122021_47390_07.jpg') no-repeat center center fixed;
   background-size: cover;
+  height: 100vh;
   }
   .main-heading {
     text-align:center;
