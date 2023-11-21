@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css'
 
 
@@ -11,6 +11,10 @@ const Game = ({ onRoundChange, onScoreChange, onTieChange }) => {
     const [round, setRound] = useState(1)
     const [resultMessage, setResultMessage] = useState('Click your choice')
 
+
+    // ASK for help on getting result on round 10
+    // useEffect(() => {
+    // }, [resultMessage])
 
     // getting random choice for computer
     const getComputerChoice = () => {
@@ -49,7 +53,7 @@ const Game = ({ onRoundChange, onScoreChange, onTieChange }) => {
 
 
     const handleRound = (playerSelection) => {
-        if (round < 10) {
+        if (round < 11) {
             const computerSelection = getComputerChoice();
             const result = playRound(playerSelection, computerSelection);
     
@@ -85,7 +89,8 @@ const Game = ({ onRoundChange, onScoreChange, onTieChange }) => {
 
         // Checking if game reached 10 rounds. Return the winner or tie.
 
-    } else {
+    }
+    else {
         if (playerScore > computerScore) {
             setResultMessage('You win! You have a higher score than the computer.')
         } else if (playerScore < computerScore) {

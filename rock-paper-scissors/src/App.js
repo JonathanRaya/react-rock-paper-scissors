@@ -29,7 +29,7 @@ const App = () => {
           <h1 className='mankind'>Best of 10 Rounds</h1> 
         </div>
         <div className='round'>
-          <h1>Round {currentRound}</h1>
+          <h1>Round {currentRound - 1}</h1>
           <h1>Ties {tieCount}</h1>
           </div>
         <div className='game'>
